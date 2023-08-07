@@ -1,12 +1,14 @@
 /* styles.css */
 
 /* Center the login form */
+
 div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100px;
+    
   }
   
   h1 {
@@ -28,7 +30,7 @@ div {
   div > div {
     display: flex;
     flex-direction: column;
-    margin-bottom: -200px;
+    margin-bottom: -400px;
   }
   
   label {
@@ -40,6 +42,7 @@ div {
     padding: 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    width: 200px;
   }
   
   button {
@@ -49,6 +52,7 @@ div {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    width: 400px;
   }
   
   button:hover {

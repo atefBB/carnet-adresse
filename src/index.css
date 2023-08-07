@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.custom-auth-container{
+  /* Add your custom styles here */
+  /* For example: */
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  position: center center ;
+  width: 40%;
+  height: 60%;
+  padding:50% 50%;
+  background-image: "./Components/images/carnet.jpg";
+}

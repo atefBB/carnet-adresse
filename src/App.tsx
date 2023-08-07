@@ -1,19 +1,12 @@
-import React from 'react';
-import LoginPage from './Components/Login';
-import './Components/LoginPage.css'; // Import the CSS file
+import React from "react"; // Import React
 
+import "./index.css";
+import LOG from "./Components/Log";
 
-const App: React.FC = () => {
-  const handleLogin = (username: string, password: string) => {
-    // Replace this function with your actual login logic, e.g., API calls, etc.
-    console.log('Logging in with:', username, password);
-  };
-
+export default function App() {
   return (
-    <div>
-      <LoginPage onLogin={handleLogin} />
-    </div>
+    <>
+      <LOG />
+    </>
   );
-};
-
-export default App;
+}
