@@ -24,7 +24,7 @@ export default function LOG() {
     if (error) {
       console.log("Error in sign in: ", error);
     } else {
-      setSession(data?.session);
+      //setSession(data?.session);
     }
   };
 
