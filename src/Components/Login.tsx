@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import "../Components/LoginPage.css";
-const supabase = createClient(
-  "https://cojvijxfnmmjudfrsgbs.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvanZpanhmbm1tanVkZnJzZ2JzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTE0MTc2MDMsImV4cCI6MjAwNjk5MzYwM30.cR3l6vzTDvv1qSpbPkfqCRtsEiuVBDrVPJ03LgZo3rw"
-);
-interface LoginProps {
-  onLogin: (username: string, password: string) => void;
-}
-const LoginPage: React.FC<LoginProps> = ({ onLogin }) => {
+import supabase from "../supabaseConfig";
+import { useNavigate } from "react-router-dom";
+
+
+const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate=useNavigate();
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
@@ -23,11 +20,16 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin }) => {
   };
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    onLogin(username, password);
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const response = await supabase.auth.signInWithPassword({
       email: username,
       password: password,
     });
+    console.log({ response })
+    console.log(response.error);
+    if(response.error===null){
+      localStorage.setItem("token",response.data.session.access_token);
+      navigate("/navbar");
+    }
   };
   
 

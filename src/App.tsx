@@ -1,13 +1,17 @@
-import React from "react"; // Import React
+import React from 'react';
+import { BrowserRouter , Route, Routes } from 'react-router-dom';
+import Login from './Components/Login'; // Import your Login component
+import Navbar from './Components/Navbar';
 
-import "./index.css";
-import LOG from "./Components/Log";
-import Navbar from "./Components/Navbar";
-export default function App() {
+function App() {
   return (
-    <>
-      <Navbar/>
-      <LOG />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/navbar' element={<Navbar/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;
